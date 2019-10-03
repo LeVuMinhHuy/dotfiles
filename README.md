@@ -5,5 +5,8 @@
 
 ---
 
-Check `init.vim` and copy just what you need.
+Check `.vimrc` and just paste it in init.vim, read carefully for choosing what you need ! thanks.
+
+[huytd](https://github.com/huytd/vim-config)
+[minh](https://github.com/nguyenquangminh0711/dotfiles)
 
