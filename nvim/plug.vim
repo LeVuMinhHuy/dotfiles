@@ -18,6 +18,11 @@ if has("nvim")
 	Plug 'L3MON4D3/LuaSnip'
 	Plug 'nvim-telescope/telescope.nvim'
 	Plug 'nvim-lua/plenary.nvim'
+	Plug 'kyazdani42/nvim-web-devicons'
+	Plug 'hoob3rt/lualine.nvim'
+  Plug 'ggandor/lightspeed.nvim'
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'preservim/nerdtree'
 endif
 
 call plug#end()

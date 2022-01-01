@@ -1,10 +1,5 @@
 " Description: Keymaps
 
-
-" Open current directory
-nmap <S-Tab> :tabprev<Return>
-nmap <Tab> :tabnext<Return>
-
 " Move window
 map <Space> <C-w>w
 
@@ -27,3 +22,9 @@ let mapleader="'"
 nnoremap <Leader>l :vsplit<CR>
 nnoremap <Leader>k :split<CR>
 nnoremap <Leader>tn :tabedit 
+
+" Vim easymotion
+nmap <silent> ;; <Plug>(easymotion-overwin-f)
+nmap <silent> ;l <Plug>(easymotion-overwin-line)
+
+nmap <silent> <Tab> <C-m>

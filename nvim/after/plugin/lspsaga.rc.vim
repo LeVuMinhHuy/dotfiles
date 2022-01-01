@@ -16,5 +16,8 @@ EOF
 
 nnoremap <silent> gh :Lspsaga lsp_finder<CR>
 nnoremap <silent> gp :Lspsaga preview_definition<CR>
+nnoremap <silent> gs :Lspsaga signature_help<CR>
 nnoremap <silent> K :Lspsaga hover_doc<CR>
 nnoremap <silent> J :Lspsaga diagnostic_jump_next<CR>
+nnoremap <silent><leader>; :Lspsaga code_action<CR>
+vnoremap <silent><leader>; :<C-U>Lspsaga range_code_action<CR>
