@@ -22,7 +22,8 @@ Choose the colors in that config site
 
 Remember to install `vim-plug` and run :PlugInstall inside `$HOME/.config/nvim/plug.vim`
 
-Theme: One Monokai
+Theme: Gruvbox
+Font: Cascadia Code Roman
 
 ![Nvim terminal](./.pics/nvim.png)
 
