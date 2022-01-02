@@ -46,4 +46,3 @@ set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.py,.md
 " Setup functions 
 runtime ./functions.vim
 
-

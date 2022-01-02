@@ -23,6 +23,7 @@ if has("nvim")
   Plug 'ggandor/lightspeed.nvim'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'preservim/nerdtree'
+	Plug 'ryanoasis/vim-devicons'
 endif
 
 call plug#end()
