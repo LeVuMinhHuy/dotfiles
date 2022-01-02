@@ -17,7 +17,7 @@ Choose the colors in that config site
 
 
 ### Nvim
-![Nvim tree](./.pics/nvimtree.png)
+![Nvim tree](./.pics/treenvim.png)
 Remember to install `vim-plug` and run :PlugInstall inside `$HOME/.config/nvim/plug.vim`
 
 Theme: One Monokai
