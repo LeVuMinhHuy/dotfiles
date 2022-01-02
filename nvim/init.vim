@@ -1,3 +1,4 @@
+" Config how NERDTree open and close
 autocmd!
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
@@ -27,21 +28,22 @@ runtime ./maps.vim
 " Setup plugin imports
 runtime ./plug.vim
 
+
 " Setup color
 syntax enable
 set termguicolors
 runtime ./colors/OneMonokai.vim
 colorscheme one_monokai
 
-highlight EasyMotionTargetDefault guifg=#ffb400
 
 " File types
 au BufNewFile,BufRead *.es6 setf javascript
-" TypeScript
 au BufNewFile,BufRead *.tsx setf typescriptreact
-" Markdown
 au BufNewFile,BufRead *.md set filetype=markdown
-" Fish
 au BufNewFile,BufRead *.fish set filetype=fish
-
 set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.py,.md
+
+" Setup functions 
+runtime ./functions.vim
+
+

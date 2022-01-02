@@ -1,2 +1,2 @@
 nnoremap <C-n> :NERDTreeFocus<CR>
-nnoremap nn :NERDTreeVCS<CR> 
+nnoremap <C-m> :NERDTreeVCS<CR> 

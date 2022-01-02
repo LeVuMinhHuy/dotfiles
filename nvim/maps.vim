@@ -1,8 +1,5 @@
 " Description: Keymaps
 
-" Move window
-map <Space> <C-w>w
-
 " Setup Escape
 inoremap jk <Esc>
 nnoremap <Left> :echoe "Use h"<CR>
@@ -13,7 +10,11 @@ nnoremap <C-l> l
 nnoremap <C-h> h
 nnoremap l w
 nnoremap h b
+nnoremap <C-k> <C-u>
+nnoremap <C-j> <C-d>
 
+" Move windows
+nmap <Space> <C-w>w
 
 " Map leader
 let mapleader="'"
@@ -21,10 +22,16 @@ let mapleader="'"
 " Split windows
 nnoremap <Leader>l :vsplit<CR>
 nnoremap <Leader>k :split<CR>
-nnoremap <Leader>tn :tabedit 
 
 " Vim easymotion
 nmap <silent> ;; <Plug>(easymotion-overwin-f)
 nmap <silent> ;l <Plug>(easymotion-overwin-line)
 
+" Open tab on NERDTree, <Tab> instead of <Enter>
 nmap <silent> <Tab> <C-m>
+
+" Floating windows
+nnoremap <Leader>t :call FloatTerm()<CR>
+
+" Sort impprts
+nnoremap <C-o> :OrganizeImports<CR>
