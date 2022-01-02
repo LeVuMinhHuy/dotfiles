@@ -1,8 +1,11 @@
 " Config how NERDTree open and close
 autocmd!
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 " Setup something
 set number
@@ -32,8 +35,8 @@ runtime ./plug.vim
 " Setup color
 syntax enable
 set termguicolors
-runtime ./colors/OneMonokai.vim
-colorscheme one_monokai
+runtime ./colors/gruvbox.vim
+colorscheme gruvbox 
 
 
 " File types
@@ -42,7 +45,4 @@ au BufNewFile,BufRead *.tsx setf typescriptreact
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead *.fish set filetype=fish
 set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.py,.md
-
-" Setup functions 
-runtime ./functions.vim
 

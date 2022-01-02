@@ -31,7 +31,8 @@ nmap <silent> ;l <Plug>(easymotion-overwin-line)
 nmap <silent> <Tab> <C-m>
 
 " Floating windows
-nnoremap <Leader>t :call FloatTerm()<CR>
+nnoremap <silent> <A-d> :Lspsaga open_floaterm<CR>
+tnoremap <silent> <A-d> <C-\><C-n>:Lspsaga close_floaterm<CR>
 
 " Sort impprts
 nnoremap <C-o> :OrganizeImports<CR>

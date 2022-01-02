@@ -1,7 +1,7 @@
 if !exists('g:loaded_telescope') | finish | endif
 
 nnoremap <silent> <C-b> <CMD>lua require('telescope.builtin').find_files()<CR>
-nnoremap <silent> <C-p> <CMD>Telescope buffers<CR>
+nnoremap <silent> <C-p> <CMD>Telescope oldfiles<CR>
 
 lua << EOF
 function telescope_buffer_dir()
