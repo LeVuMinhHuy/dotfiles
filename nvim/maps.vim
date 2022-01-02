@@ -28,7 +28,7 @@ nmap <silent> ;; <Plug>(easymotion-overwin-f)
 nmap <silent> ;l <Plug>(easymotion-overwin-line)
 
 " Open tab on NERDTree, <Tab> instead of <Enter>
-nmap <silent> <Tab> <C-m>
+nmap 1 <C-m>
 
 " Floating windows
 nnoremap <silent> <A-d> :Lspsaga open_floaterm<CR>
@@ -36,3 +36,7 @@ tnoremap <silent> <A-d> <C-\><C-n>:Lspsaga close_floaterm<CR>
 
 " Sort impprts
 nnoremap <C-o> :OrganizeImports<CR>
+
+" Manage tabs
+nnoremap <C-q> :close<CR>
+nnoremap <silent> <Tab> :tabn<CR>
