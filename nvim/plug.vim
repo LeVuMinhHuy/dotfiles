@@ -25,6 +25,7 @@ if has("nvim")
 	Plug 'preservim/nerdtree'
 	Plug 'ryanoasis/vim-devicons'
 	Plug 'eugen0329/vim-esearch'
+	Plug 'liuchengxu/vista.vim'
 endif
 
 call plug#end()

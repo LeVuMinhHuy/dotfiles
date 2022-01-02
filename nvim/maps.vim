@@ -40,3 +40,7 @@ nnoremap <C-o> :OrganizeImports<CR>
 " Manage tabs
 nnoremap <C-q> :close<CR>
 nnoremap <silent> <Tab> :tabn<CR>
+
+" Manage functions
+nnoremap <silent> <A-f> :Vista nvim_lsp<CR>
+"nnoremap <silent> <A-f> <C-\><C-n> :Vista nvim_lsp<CR>
