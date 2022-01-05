@@ -42,6 +42,10 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
   -- formatting
+	if client.name == 'tsserver' then
+		client.resolved_capabilities.document_formatting = false	
+	end
+
 
   if client.resolved_capabilities.document_formatting then
     vim.api.nvim_command [[augroup Format]]
@@ -99,7 +103,7 @@ nvim_lsp.tsserver.setup {
 
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
-  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'markdown', 'pandoc' },
+  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'typescript.tsx', 'css', 'less', 'scss', 'markdown', 'pandoc' },
   init_options = {
     linters = {
       eslint = {
@@ -154,7 +158,7 @@ nvim_lsp.diagnosticls.setup {
       typescriptreact = 'prettier',
       json = 'prettier',
       markdown = 'prettier',
-    }
+			}
   }
 }
 

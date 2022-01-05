@@ -22,7 +22,7 @@ set nowritebackup
 set relativenumber
 set tabstop=2
 set shiftwidth=2
-
+set expandtab
 
 " Setup mapping key
 runtime ./maps.vim
@@ -61,3 +61,9 @@ let g:lightline = {
       \   'method': 'NearestMethodOrFunction'
       \ },
       \ }
+
+let g:syntastic_typescript_checks=['tsc', 'tslint']
+
+" typescript: find tsconfig.json
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
