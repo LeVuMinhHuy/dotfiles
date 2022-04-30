@@ -25,8 +25,8 @@ if has("nvim")
 	Plug 'preservim/nerdtree'
 	Plug 'ryanoasis/vim-devicons'
 	Plug 'eugen0329/vim-esearch'
-	Plug 'liuchengxu/vista.vim'
 	Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+  Plug 'jparise/vim-graphql'
 endif
 
 call plug#end()

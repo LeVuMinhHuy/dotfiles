@@ -31,7 +31,7 @@ nmap <silent> ;; <Plug>(easymotion-overwin-f)
 nmap <silent> ;l <Plug>(easymotion-overwin-line)
 
 " Open tab on NERDTree, <Tab> instead of <Enter>
-nmap 1 <C-m>
+nmap <Esc> <Enter>
 
 " Floating windows
 nnoremap <silent> <A-d> :Lspsaga open_floaterm<CR>

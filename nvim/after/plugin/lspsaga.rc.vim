@@ -19,5 +19,5 @@ nnoremap <silent> gp :Lspsaga preview_definition<CR>
 nnoremap <silent> gs :Lspsaga signature_help<CR>
 nnoremap <silent> K :Lspsaga hover_doc<CR>
 nnoremap <silent> J :Lspsaga diagnostic_jump_next<CR>
-nnoremap <silent> iu :Lspsaga code_action<CR>
-vnoremap <silent> iu <C-U>Lspsaga range_code_action<CR>
+nnoremap <silent> ,, :Lspsaga code_action<CR>
+vnoremap <silent> ,, <C-U>Lspsaga range_code_action<CR>

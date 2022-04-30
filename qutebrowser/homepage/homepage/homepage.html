@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Home</title>
+    <link rel="stylesheet" href="../styles/homepage.css">
+    <link href="favicon.png" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <div id="search">
+        <input id="search-field" type="text" name="search-field"/>
+    </div>
+    <div class="container">
+        <div id="clock"></div>
+        
+        <div class="bookmark-container">
+            <div class="bookmark-set">
+                <div class="bookmark-title">GNU/Linux</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://www.linuxtoday.com/" >LinuxToday</a>
+                    <a class="bookmark" href="https://phoronix.com/" >Phoronix</a>
+                    <a class="bookmark" href="https://wiki.archlinux.org/" >Arch Wiki</a>
+                </div>
+            </div>
+            <div class="bookmark-set">
+                <div class="bookmark-title">Work</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://outlook.office.com/mail/" >Mail</a>
+                    <a class="bookmark" href="https://app.contentstack.com/#!/stack/blt331c1aa12dcfd37a/dashboard" >CS Entry</a>
+                    <a class="bookmark" href="https://www.contentstack.com/docs/developers/apis/graphql-content-delivery-api/explorer/?api_key=blt331c1aa12dcfd37a&access_token=cse06553b629c0b9d3ff0cbbf6&environment=1dev&?api_key=bltd7920b0da64e7869&region=north-america&region=north-america" >CS Explorer</a>
+                    <a class="bookmark" href="https://fwdnextgen.atlassian.net/jira/software/c/projects/ONEWEB/boards/60?assignee=61e0fe669ee70a0068e93380" >Jira</a>
+                    <a class="bookmark" href="https://np-jenkins.dep.fwd.com/login?from=%2Fjob%2Fproject-pipelines%2Fjob%2Fprojects-oneweb-%2Fjob%2Fdep-pipelines-projects-oneweb-nextgen-generator%2Fjob%2Fmaster%2F" >Jenkins</a>
+                    <a class="bookmark" href="https://ap-southeast-1.console.aws.amazon.com/codesuite/codecommit/repositories?region=ap-southeast-1#" target="_blank">Code commit</a>
+                    <a class="bookmark" href="https://app.datadoghq.eu/apm/home" >Datadog</a>
+                </div>
+            </div>
+            <div class="bookmark-set">
+                <div class="bookmark-title">Get a life</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://youtube.com" >Youtube</a>
+                    <a class="bookmark" href="https://www.messenger.com/" >Messenger</a>
+                    <a class="bookmark" href="https://www.instagram.com/?hl=en" >Instagram</a>
+                    <a class="bookmark" href="https://discord.com/channels/914543024283996180/914543024283996183" >studyholic</a>
+                </div>
+            </div>
+            <div class="bookmark-set">
+            <div class="bookmark-title">Others</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://watchtheofficetv.com/season-watch/" >The Office</a>
+
+                    <a class="bookmark" href="https://netflix.com" >Netflix</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Search on enter key event
+        document.getElementById("search-field").addEventListener("keydown",  event => { 
+            if (event.keyCode === 13) {
+                var val = document.getElementById("search-field").value;
+                window.open("https://google.com/search?q=" + val);
+            }
+        });
+        // Get current time and format
+        getTime = () => {
+            let date = new Date(),
+                min = date.getMinutes(),
+                sec = date.getSeconds(),
+                hour = date.getHours();
+
+            return "" + 
+                (hour < 10 ? ("0" + hour) : hour) + ":" + 
+                (min < 10 ? ("0" + min) : min) + ":" + 
+                (sec < 10 ? ("0" + sec) : sec);
+        }
+
+        window.onload = () => {
+                fetch('https://saurav.tech/NewsAPI/top-headlines/category/technology/us.json', {method: 'GET',mode: 'no-cors'}).then((res) => {
+                  console.log(res)
+                  const json = res.json()
+                  const num = Math.floor(Math.random() * (json.totalResults))
+                  document.getElementById("weather-description").innerHTML = json.articles[num].title;
+            })
+            // Set up the clock
+            document.getElementById("clock").innerHTML = getTime();
+            // Set clock interval to tick clock
+            setInterval( () => {
+                document.getElementById("clock").innerHTML = getTime();
+            },100);
+        }
+
+        document.addEventListener("keydown", event => {
+            if (event.keyCode == 32) {          // Spacebar code to open search
+                document.getElementById('search').style.display = 'flex';
+                document.getElementById('search-field').focus();
+            } else if (event.keyCode == 27) {   // Esc to close search
+                document.getElementById('search-field').value = '';
+                document.getElementById('search-field').blur();
+                document.getElementById('search').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
