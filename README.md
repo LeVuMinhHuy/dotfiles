@@ -1,4 +1,4 @@
-Put these files into `$HOME/.config`
+ut these files into `$HOME/.config`
 
 ### Fish
 ![Fish shell](./.pics/fish.png)
@@ -27,3 +27,22 @@ Font: Cascadia Code Roman
 
 ![Nvim terminal](./.pics/nvim.png)
 
+### Awesomewm
+
+I use Arch, btw
+
+![Awesomewm with Arch linux](./.pics/aw1.png)
+![Awesomewm with Arch linux](./.pics/aw2.png)
+![Awesomewm with Arch linux](./.pics/aw3.png)
+![Awesomewm with Arch linux](./.pics/aw4.png)
+
+Assume we you `yay` for install packages from AUR, then we need to install
+
+```
+yay picom-git alacritty rofi acpi acpid acpi_call \
+jq inotify-tools polkit-gnome xdotool xclip gpick ffmpeg blueman \
+pipewire pipewire-alsa pipewire-pulse pamixer scrot \
+feh mpv mpd mpc mpdris2 ncmpcpp playerctl --needed 
+```
+
+And please install font: Cascadia Code Nerd Font (from AUR also)
