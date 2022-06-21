@@ -12,7 +12,7 @@ rubato.set_def_rate(60)
 --- useful color constants
 local ia_rgb = color.color({ hex = beautiful.darker_bg, disable_hsl = true }) --inactive color
 local a_rgb = color.color({ hex = beautiful.vcolor1, disable_hsl = true }) --active color
-local u_rgb = color.color({ hex = beautiful.xcolor3, disable_hsl = true }) --urgent color
+local u_rgb = color.color({ hex = beautiful.xcolor5, disable_hsl = true }) --urgent color
 local s_rgb = color.color({ hex = beautiful.xcolor3, disable_hsl = true }) --slidey color
 
 -- Calculate the diff in colors for some stuff later on

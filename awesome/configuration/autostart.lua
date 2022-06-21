@@ -52,4 +52,7 @@ run_once_grep("blueman-applet")
 run_once_grep("nm-applet")
 
 -- Open RGB
-run_once_grep("openrgb --server --profile myprofile.orp &")
+run_once_grep("openrgb --server --profile pp.orp &")
+
+-- Ibus deamon
+run_once_grep("ibus-daemon -drxR")
