@@ -53,3 +53,5 @@ let g:syntastic_typescript_checks=['tsc', 'tslint']
 " typescript: find tsconfig.json
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
+
+set mouse-=a

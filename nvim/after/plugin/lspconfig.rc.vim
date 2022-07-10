@@ -103,7 +103,7 @@ nvim_lsp.tsserver.setup {
 
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
-  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'typescript.tsx', 'css', 'less', 'scss', 'markdown', 'pandoc'},
+  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'typescript.tsx', 'css', 'less', 'scss', 'markdown', 'pandoc', 'lua'},
   init_options = {
     linters = {
       eslint = {
@@ -158,7 +158,8 @@ nvim_lsp.diagnosticls.setup {
       typescriptreact = 'prettier',
       json = 'prettier',
       markdown = 'prettier',
-      go = 'prettier'
+      go = 'prettier',
+      lua = 'prettier'
 			}
   }
 }
@@ -248,4 +249,50 @@ function goimports(timeoutms)
   end
 end
 
+
+-- rustlang
+
+local opts = {
+  -- rust-tools options
+  tools = {
+    autoSetHints = true,
+    hover_with_actions = true,
+    inlay_hints = {
+      show_parameter_hints = true,
+      parameter_hints_prefix = "",
+      other_hints_prefix = "",
+      },
+    },
+
+  -- all the opts to send to nvim-lspconfig
+  -- these override the defaults set by rust-tools.nvim
+  -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+  -- https://rust-analyzer.github.io/manual.html#features
+  server = {
+    settings = {
+      ["rust-analyzer"] = {
+        assist = {
+          importEnforceGranularity = true,
+          importPrefix = "crate"
+          },
+        cargo = {
+          allFeatures = true
+          },
+        checkOnSave = {
+          -- default: `cargo check`
+          command = "clippy"
+          },
+        },
+        inlayHints = {
+          lifetimeElisionHints = {
+            enable = true,
+            useParameterNames = true
+          },
+        },
+      }
+    },
+}
+require('rust-tools').setup(opts)
+
 EOF
+

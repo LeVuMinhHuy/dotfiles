@@ -47,3 +47,6 @@ nnoremap <silent> <Tab> :tabn<CR>
 " Manage functions
 nnoremap <silent> <A-f> :Vista nvim_lsp<CR>
 "nnoremap <silent> <A-f> <C-\><C-n> :Vista nvim_lsp<CR>
+
+vnoremap <Leader>y "*y
+nnoremap <Leader>p "*p
