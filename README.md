@@ -35,12 +35,9 @@ I use Arch, btw
 
 My first rice looks like the picture below with a lot complicated stuffs and features.
 
-[comment]: <> ![Awesomewm with Arch linux](./.pics/aw1.png)
 ![Awesomewm with Arch linux](./.pics/aw2.png)
-[comment]: <> ![Awesomewm with Arch linux](./.pics/aw3.png)
-[comment]: <> ![Awesomewm with Arch linux](./.pics/aw4.png)
 
-After a while, I found this rice has many problems (slow by the time, so much functions that I don't understand and therefore can not control it)
+After a while, I found this rice has so many problems (slow by the time, so much functions that I don't understand and therefore can not control it)
 
 I decided to turn back to the basic, with have nothing than just a default config.
 
