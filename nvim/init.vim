@@ -54,4 +54,7 @@ let g:syntastic_typescript_checks=['tsc', 'tslint']
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 
+" rustfmt
+let g:rustfmt_autosave = 1
+
 set mouse-=a

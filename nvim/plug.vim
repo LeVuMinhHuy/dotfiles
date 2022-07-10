@@ -28,6 +28,7 @@ if has("nvim")
 	Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
   Plug 'jparise/vim-graphql'
   Plug 'simrat39/rust-tools.nvim'
+  Plug 'rust-lang/rust.vim'
 endif
 
 call plug#end()
