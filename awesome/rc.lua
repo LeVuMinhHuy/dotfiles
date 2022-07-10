@@ -471,6 +471,7 @@ end
 -- List of apps to start once on start-up
 local autostart_app = {
   "ibus-daemon -drxR",
+  "amixer set Master 100%",
   -- "openrgb --server --profile pp.orp & && disown $(jobs -lp | awk '{print $1}')"
   -- "openrgb --server -d 0 -c random -d 1 -c random -d 2 -c random & && disown $(jobs -lp | awk '{print $1}')"
 }

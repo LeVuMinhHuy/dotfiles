@@ -10,7 +10,7 @@ function fish_prompt
     end
 
     # Display time
-    set_color white -b magenta
+    set_color black -b "#FFE3A9"
     echo -n $time
 
     # Display current path
