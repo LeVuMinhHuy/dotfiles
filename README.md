@@ -1,4 +1,4 @@
-ut these files into `$HOME/.config`
+Put these files into `$HOME/.config`
 
 ### Fish
 
