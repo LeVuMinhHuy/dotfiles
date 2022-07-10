@@ -1,6 +1,7 @@
 ut these files into `$HOME/.config`
 
 ### Fish
+
 ![Fish shell](./.pics/fish.png)
 
 Simple prompt UI config by me
@@ -8,6 +9,7 @@ Simple prompt UI config by me
 Remember to install `exa` for better list files.
 
 Run these command:
+
 ```
 set fish_gretting "code what you love, love what you code"
 set fish_color_valid_path
@@ -16,8 +18,8 @@ fish_config
 
 Choose the colors in that config site
 
-
 ### Nvim
+
 ![Nvim tree](./.pics/treenvim.png)
 
 Remember to install `vim-plug` and run :PlugInstall inside `$HOME/.config/nvim/plug.vim`
@@ -31,18 +33,18 @@ Font: Cascadia Code Roman
 
 I use Arch, btw
 
-![Awesomewm with Arch linux](./.pics/aw1.png)
+My first rice looks like the picture below with a lot complicated stuffs and features.
+
+[comment]: <> ![Awesomewm with Arch linux](./.pics/aw1.png)
 ![Awesomewm with Arch linux](./.pics/aw2.png)
-![Awesomewm with Arch linux](./.pics/aw3.png)
-![Awesomewm with Arch linux](./.pics/aw4.png)
+[comment]: <> ![Awesomewm with Arch linux](./.pics/aw3.png)
+[comment]: <> ![Awesomewm with Arch linux](./.pics/aw4.png)
 
-Assume we you `yay` for install packages from AUR, then we need to install
+After a while, I found this rice has many problems (slow by the time, so much functions that I don't understand and therefore can not control it)
 
-```
-yay picom-git alacritty rofi acpi acpid acpi_call \
-jq inotify-tools polkit-gnome xdotool xclip gpick ffmpeg blueman \
-pipewire pipewire-alsa pipewire-pulse pamixer scrot \
-feh mpv mpd mpc mpdris2 ncmpcpp playerctl --needed 
-```
+I decided to turn back to the basic, with have nothing than just a default config.
 
-And please install font: Cascadia Code Nerd Font (from AUR also)
+![Keep it basic](./.pics/awb1.png)
+![Keep it basic](./.pics/awb2.png)
+
+Please install font: Cascadia Code Nerd Font, I love this font so much
