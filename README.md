@@ -39,7 +39,7 @@ My first rice looks like the picture below with a lot complicated stuffs and fea
 
 After a while, I found this rice has so many problems (slow by the time, so much functions that I don't understand and therefore can not control it)
 
-I decided to turn back to the basic, with have nothing than just a default config.
+I decided to turn back to the basic, which have nothing than just a default config.
 
 ![Keep it basic](./.pics/awb1.png)
 ![Keep it basic](./.pics/awb2.png)
