@@ -132,7 +132,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
   	  collectgarbage("collect")
     end)
 
-    s.noti_status = wibox.widget.textbox(" hide noti: "  .. tostring(not naughty.is_suspended())  .. " | ")
+    s.noti_status = wibox.widget.textbox(" dnd: "  .. tostring(naughty.is_suspended())  .. " | ")
 
     -- Create the wibox
     s.mywibox = awful.wibar {
@@ -175,7 +175,7 @@ awful.mouse.append_global_mousebindings({
 awful.keyboard.append_global_keybindings({
     awful.key({ modkey }, "y", function() 
         naughty.toggle()
-        screen[1].mywibox.widget:get_children_by_id("dnd")[1].text = " hide noti: "  .. tostring(not naughty.is_suspended())  .. " | ";
+        screen[1].mywibox.widget:get_children_by_id("dnd")[1].text = " dnd: "  .. tostring(naughty.is_suspended())  .. " | ";
     end, {description = "Toggle hide notifications", group = "recording"}),
     
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
