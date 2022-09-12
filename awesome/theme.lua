@@ -66,7 +66,7 @@ theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
 
 -- Define the image to load
-theme.wallpaper = os.getenv("HOME") .. "/.config/awesome/wallpapers/gilfoyle.png"
+theme.wallpaper = os.getenv("HOME") .. "/.config/awesome/wallpapers/cats.jpg"
 -- You can use your own layout icons like this:
 theme.layout_floating  = themes_path.."default/layouts/floatingw.png"
 theme.layout_tile = themes_path.."default/layouts/tilew.png"

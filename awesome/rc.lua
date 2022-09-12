@@ -12,11 +12,13 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 require("awful.autofocus")
 
+--naughty.suspend()
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 naughty.connect_signal("request::display_error", function(message, startup)
-    naughty.notification {
+    ughty.notification {
         urgency = "critical",
         title   = "Oops, an error happened"..(startup and " during startup!" or "!"),
         message = message
@@ -123,13 +125,14 @@ screen.connect_signal("request::desktop_decoration", function(s)
     }
 
     s.myRam =  awful.widget.watch('bash -c "free | grep -z Mem.*Swap.*"', 15, function(widget, stdout)
-  	local total, used, free, shared, buff_cache, available, total_swap, used_swap, free_swap = stdout:match(
-  		"(%d+)%s*(%d+)%s*(%d+)%s*(%d+)%s*(%d+)%s*(%d+)%s*Swap:%s*(%d+)%s*(%d+)%s*(%d+)"
-  	)
-  	widget:set_markup(" ram: " .. string.format("%.2f", used / total * 100) .. " | ")
-  	collectgarbage("collect")
-  end)
+  	  local total, used, free, shared, buff_cache, available, total_swap, used_swap, free_swap = stdout:match(
+  	  	"(%d+)%s*(%d+)%s*(%d+)%s*(%d+)%s*(%d+)%s*(%d+)%s*Swap:%s*(%d+)%s*(%d+)%s*(%d+)"
+  	  )
+  	  widget:set_markup(" ram: " .. string.format("%.2f", used / total * 100) .. " | ")
+  	  collectgarbage("collect")
+    end)
 
+    s.noti_status = wibox.widget.textbox(" hide noti: "  .. tostring(not naughty.is_suspended())  .. " | ")
 
     -- Create the wibox
     s.mywibox = awful.wibar {
@@ -145,6 +148,10 @@ screen.connect_signal("request::desktop_decoration", function(s)
             s.mytasklist, -- Middle widget
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
+                {
+                  id = "dnd",
+                  widget = s.noti_status,
+                },
                 s.myRam,
                 wibox.widget.systray(),
                 mytextclock,
@@ -166,6 +173,11 @@ awful.mouse.append_global_mousebindings({
 
 -- General Awesome keys
 awful.keyboard.append_global_keybindings({
+    awful.key({ modkey }, "y", function() 
+        naughty.toggle()
+        screen[1].mywibox.widget:get_children_by_id("dnd")[1].text = " hide noti: "  .. tostring(not naughty.is_suspended())  .. " | ";
+    end, {description = "Toggle hide notifications", group = "recording"}),
+    
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
