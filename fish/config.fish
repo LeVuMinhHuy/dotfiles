@@ -11,6 +11,11 @@ if status --is-interactive
   end
 end
 
+if status is-interactive
+and not set -q TMUX
+  exec tmux
+end
+
 alias vim "nvim"
 alias testwm "Xephyr :5 & sleep 1 ; DISPLAY=:5 awesome"
 alias barney "vim /home/mhhmm/.config/awesome/rc.lua"
