@@ -14,6 +14,20 @@ end
 alias vim "nvim"
 alias testwm "Xephyr :5 & sleep 1 ; DISPLAY=:5 awesome"
 alias barney "vim /home/mhhmm/.config/awesome/rc.lua"
+alias rust_me_daddy 'cd /home/mhhmm/Documents/somewhereineurope/rust && vim'
+alias fish_me_daddy 'cd /home/mhhmm/.config/fish && vim'
+alias nextgen 'cd /home/mhhmm/Documents/sourcecodedotcomdotau/NEXTGEN'
+alias bash_me_daddy 'cd /home/mhhmm/Documents/somewhereineurope/bash'
+alias r 'ranger'
+alias torrent "transmission-cli"
+
+# For work only
+set -gx B64_PAT "Om5xeTUyNDNxY2Q3aHVlZTZoc29mbHhsaGVvMnZnanJ0ZnN4d24yb3hqem9rampzczNrc3E="
+alias pull_deploy_uat 'git -c http.extraHeader="Authorization: Basic $B64_PAT" pull origin uat'
+alias pull_deploy_dev 'git -c http.extraHeader="Authorization: Basic $B64_PAT" pull origin develop'
+alias push_deploy_uat 'git -c http.extraHeader="Authorization: Basic $B64_PAT" push origin uat'
+alias push_deploy_dev 'git -c http.extraHeader="Authorization: Basic $B64_PAT" push origin develop'
+alias git_deploy 'git -c http.extraHeader="Authorization: Basic $B64_PAT"'
 
 # pnpm
 set -gx PNPM_HOME "/home/mhhmm/.local/share/pnpm"
@@ -21,5 +35,9 @@ set -gx PNPM_HOME "/home/mhhmm/.local/share/pnpm"
 # rustlang
 set -gx RUST_HOME "/home/mhhmm/.cargo/bin"
 
+# solana
+set -gx SOLANA_HOME "/home/mhhmm/.local/share/solana/install/active_release/bin:$PATH"
+
 set -gx PATH "$PNPM_HOME" $PATH
 set -gx PATH "$RUST_HOME" $PATH
+set -gx PATH "$SOLANA_HOME" $PATH

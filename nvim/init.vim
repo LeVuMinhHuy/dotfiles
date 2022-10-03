@@ -26,7 +26,7 @@ set relativenumber
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Setup mapping key
 runtime ./maps.vim
@@ -57,4 +57,4 @@ let g:prettier#autoformat_require_pragma = 0
 " rustfmt
 let g:rustfmt_autosave = 1
 
-set mouse-=a
+set mouse+=a
