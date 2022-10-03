@@ -1,0 +1,61 @@
+:root {
+  font-family: "Cascadia Code" !important;
+}
+
+html#main-window
+  body
+  hbox#browser
+  vbox#sidebar-box.chromeclass-extrachrome
+  box#sidebar-header {
+  display: none;
+}
+
+#titlebar {
+  display: none;
+}
+
+#PersonalToolbar {
+  display: none;
+}
+
+/*
+:root[sessionrestored] #nav-bar:-moz-lwtheme {
+  display: none;
+}
+*/
+
+#urlbar:not([focused]) #urlbar-input, /* ID for Firefox 70 */
+#urlbar:not([focused]) .urlbar-input {
+  text-align: center !important;
+}
+
+#back-button {
+  display: none;
+}
+
+#forward-button {
+  display: none;
+}
+
+#urlbar:not([focused]) #urlbar-input,
+#urlbar:not([focused]) .urlbar-input {
+  text-align: center !important;
+}
+
+#urlbar-search-button,
+#tracking-protection-icon-container,
+#identity-box,
+#identity-box.extensionPage #identity-icon-label {
+  max-width: 0px;
+  transition: max-width 100ms linear !important;
+  overflow: hidden;
+}
+
+#identity-box.extensionPage {
+  max-width: 32px;
+}
+
+#urlbar:hover #urlbar-input-container > box,
+#urlbar:hover #identity-box.extensionPage #identity-icon-label {
+  max-width: 300px;
+}
