@@ -132,6 +132,12 @@ screen.connect_signal("request::desktop_decoration", function(s)
   	  collectgarbage("collect")
     end)
 
+    s.myBattery = awful.widget.watch('cat /sys/class/power_supply/BAT0/capacity', 30, function(widget, stdout)
+      local cap = stdout
+  	  widget:set_markup(" bat: " .. string.format("%.f", cap) .. " | ")
+  	  collectgarbage("collect")
+    end)
+
     s.noti_status = wibox.widget.textbox(" dnd: "  .. tostring(naughty.is_suspended())  .. " | ")
 
     -- Create the wibox
@@ -153,6 +159,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
                   widget = s.noti_status,
                 },
                 s.myRam,
+                s.myBattery,
                 wibox.widget.systray(),
                 mytextclock,
             },
@@ -492,7 +499,7 @@ for _, app in ipairs(autostart_app) do
 	run_once_grep(app)
 end
 
-just_run("openrgb --server --profile pp.orp & && disown $(jobs -lp | awk '{print $1}')")
+-- just_run("openrgb --server --profile pp.orp & && disown $(jobs -lp | awk '{print $1}')")
 
 --
 -- }}}
