@@ -58,3 +58,6 @@ inoremap <S-A-j> <Esc>:m .+1<CR>==gi
 inoremap <S-A-k> <Esc>:m .-2<CR>==gi
 vnoremap <S-A-j> :m '>+1<CR>gv=gv
 vnoremap <S-A-k> :m '<-2<CR>gv=gv
+
+xnoremap p pgvy
+
