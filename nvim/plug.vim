@@ -12,7 +12,7 @@ if has("nvim")
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/nvim-cmp'
-  Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim6.0' }
+  Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'onsails/lspkind-nvim'
 	Plug 'L3MON4D3/LuaSnip'
