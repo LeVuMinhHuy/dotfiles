@@ -7,6 +7,7 @@ autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | e
 autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
 autocmd BufWritePre *.go lua goimports(1000)
 let NERDTreeShowHidden=1
+let g:NERDTreeMinimalMenu=1
 
 " Setup something
 "
