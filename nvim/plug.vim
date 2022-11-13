@@ -29,6 +29,7 @@ if has("nvim")
   Plug 'jparise/vim-graphql'
   Plug 'rust-lang/rust.vim'
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+  Plug 'akinsho/git-conflict.nvim' 
 endif
 
 call plug#end()
