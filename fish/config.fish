@@ -26,14 +26,6 @@ alias bash_me_daddy 'cd /home/mhhmm/Documents/somewhereineurope/bash'
 alias r 'ranger'
 alias torrent "transmission-cli"
 
-# For work only
-set -gx B64_PAT "Om5xeTUyNDNxY2Q3aHVlZTZoc29mbHhsaGVvMnZnanJ0ZnN4d24yb3hqem9rampzczNrc3E="
-alias pull_deploy_uat 'git -c http.extraHeader="Authorization: Basic $B64_PAT" pull origin uat'
-alias pull_deploy_dev 'git -c http.extraHeader="Authorization: Basic $B64_PAT" pull origin develop'
-alias push_deploy_uat 'git -c http.extraHeader="Authorization: Basic $B64_PAT" push origin uat'
-alias push_deploy_dev 'git -c http.extraHeader="Authorization: Basic $B64_PAT" push origin develop'
-alias git_deploy 'git -c http.extraHeader="Authorization: Basic $B64_PAT"'
-
 # pnpm
 set -gx PNPM_HOME "/home/mhhmm/.local/share/pnpm"
 
