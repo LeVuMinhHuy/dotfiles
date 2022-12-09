@@ -27,8 +27,8 @@ nnoremap <Leader>l :vsplit<CR>
 nnoremap <Leader>k :split<CR>
 
 " Vim easymotion
-nmap <silent> ;; <Plug>(easymotion-overwin-f)
-nmap <silent> ;l <Plug>(easymotion-overwin-line)
+"nmap <silent> ;; <Plug>(easymotion-overwin-f)
+"nmap <silent> ;l <Plug>(easymotion-overwin-line)
 
 " Open tab on NERDTree, <Tab> instead of <Enter>
 nmap <Esc> <Enter>

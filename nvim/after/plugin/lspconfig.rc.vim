@@ -8,7 +8,7 @@ EOF
 
 lua << EOF
 local nvim_lsp = require('lspconfig')
-local protocol = require'vim.lsp.protocol'
+local protocol = require('vim.lsp.protocol')
 
 -- Use an on_attach function to only map the following keys 
 -- after the language server attaches to the current buffer

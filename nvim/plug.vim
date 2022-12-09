@@ -30,6 +30,7 @@ if has("nvim")
   Plug 'rust-lang/rust.vim'
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
   Plug 'akinsho/git-conflict.nvim' 
+  Plug 'tamton-aquib/duck.nvim'
 endif
 
 call plug#end()
