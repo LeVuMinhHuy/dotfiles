@@ -12,13 +12,11 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 require("awful.autofocus")
 
---naughty.suspend()
-
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 naughty.connect_signal("request::display_error", function(message, startup)
-    ughty.notification {
+    naughty.notification {
         urgency = "critical",
         title   = "Oops, an error happened"..(startup and " during startup!" or "!"),
         message = message
@@ -132,13 +130,146 @@ screen.connect_signal("request::desktop_decoration", function(s)
   	  collectgarbage("collect")
     end)
 
-    s.myBattery = awful.widget.watch('cat /sys/class/power_supply/BAT0/capacity', 30, function(widget, stdout)
-      local cap = stdout
-  	  widget:set_markup(" bat: " .. string.format("%.f", cap) .. " | ")
-  	  collectgarbage("collect")
-    end)
+   -- s.myBattery = awful.widget.watch('cat /sys/class/power_supply/BAT0/capacity', 30, function(widget, stdout)
+   --   local cap = stdout
+   --   widget:set_markup(" bat: " .. string.format("%.f", cap) .. " | ")
+   --   collectgarbage("collect")
+   -- end)
 
     s.noti_status = wibox.widget.textbox(" dnd: "  .. tostring(naughty.is_suspended())  .. " | ")
+
+    local water_icon = wibox.widget {
+      image  = "/home/mhhmm/Pictures/emotes/water.png",
+      forced_height = 24,
+      forced_width = 24,
+      widget = wibox.widget.imagebox,
+    }
+
+    local pomodoro_icon = wibox.widget {
+      image  = "/home/mhhmm/Pictures/emotes/pomodoro.png",
+      widget = wibox.widget.imagebox,
+    }
+    
+
+    s.water_me = {
+        widget   = wibox.widget.textbox(" | "),
+        icon = water_icon
+    }
+
+    s.pomodoro = {
+        widget   = wibox.widget.textbox(" | "),
+        icon = pomodoro_icon
+    }
+
+    function s.water_me.set()
+        s.water_me.widget:set_markup(" | ")
+        local timeout = 20
+        s.water_me.seconds = tonumber(timeout)
+        if not s.water_me.seconds then return end
+        s.water_me.minute_t = s.water_me.seconds > 1 and "minutes" or "minute"
+        s.water_me.seconds = s.water_me.seconds * 60
+        s.water_me.timer = gears.timer({ timeout = 1 })
+        s.water_me.timer:connect_signal("timeout", function()
+            if s.water_me.seconds > 0 then
+                local minutes = math.floor(s.water_me.seconds / 60)
+                local seconds = math.fmod(s.water_me.seconds, 60)
+                s.water_me.widget:set_markup(string.format("%d:%02d | ", minutes, seconds))
+                s.water_me.seconds = s.water_me.seconds - 1
+            else
+                s.water_me.timer:stop()
+                s.water_me.widget:set_markup(" done | ")
+                naughty.notify({
+                    title = "drink water",
+                    --text  = string.format("%s %s timeout", timeout, s.water_me.minute_t),
+                    text  = string.format("stay hydrated"),
+                    timeout = 30,
+                    height = 1000,
+                    width = 1000,
+                    position = 'top_middle',
+                    margin = {
+                      top = 440,
+                      left = 390
+                    },
+                    icon = "/home/mhhmm/Pictures/emotes/water.png",
+                    ignore_suspend = true,
+                    border_color = "#82C3EC",
+                    fg = "#82C3EC",
+                })
+                s.water_me.set()
+            end
+        end)
+        s.water_me.timer:start()
+    end
+    
+    s.water_me.icon:buttons(awful.util.table.join(
+        awful.button({}, 1, function() s.water_me.set() end), -- left click
+        awful.button({}, 3, function() -- right click
+            if s.water_me.timer and s.water_me.timer.started then
+                s.water_me.widget:set_markup(" | ")
+                s.water_me.timer:stop()
+                naughty.notify({ title = "Countdown", text  = "Timer stopped" })
+            end
+        end)
+    ))
+
+    s.water_me.set()
+
+    local pomodoro_count = 0
+    s.pomodoro.widget:set_markup(" today: " .. tostring(pomodoro_count) .. " | ")
+
+    function s.pomodoro.set()
+        s.pomodoro.widget:set_markup(" today: " .. tostring(pomodoro_count) .. " | ")
+        local timeout = 25
+        s.pomodoro.seconds = tonumber(timeout)
+        if not s.pomodoro.seconds then return end
+        s.pomodoro.minute_t = s.pomodoro.seconds > 1 and "minutes" or "minute"
+        s.pomodoro.seconds = s.pomodoro.seconds * 60
+        s.pomodoro.timer = gears.timer({ timeout = 1 })
+        s.pomodoro.timer:connect_signal("timeout", function()
+            if s.pomodoro.seconds > 0 then
+                local minutes = math.floor(s.pomodoro.seconds / 60)
+                local seconds = math.fmod(s.pomodoro.seconds, 60)
+                s.pomodoro.widget:set_markup(string.format("%d:%02d | today: " .. tostring(pomodoro_count) .. " | ", minutes, seconds))
+                s.pomodoro.seconds = s.pomodoro.seconds - 1
+            else
+                pomodoro_count = pomodoro_count + 1
+                s.pomodoro.timer:stop()
+                s.pomodoro.widget:set_markup(" today: " .. tostring(pomodoro_count) .. " | ")
+                naughty.notify({
+                    title = "u made it",
+                    --text  = string.format("%s %s timeout", timeout, s.pomodoro.minute_t),
+                    text  = string.format("stay focused"),
+                    height = 1000,
+                    width = 1000,
+                    position = 'top_middle',
+                    margin = {
+                      top = 440,
+                      left = 390
+                    },
+                    icon = "/home/mhhmm/Pictures/emotes/pomodoro.png",
+                    ignore_suspend = true,
+                    border_color = "#FF6347",
+                    fg = "#FF6347",
+                })
+            end
+        end)
+        s.pomodoro.timer:start()
+    end
+ 
+    s.pomodoro.icon:buttons(awful.util.table.join(
+        awful.button({}, 1, function() s.pomodoro.set() end), -- left click
+        awful.button({}, 3, function() -- right click
+            if s.pomodoro.timer and s.pomodoro.timer.started then
+                s.pomodoro.widget:set_markup(" | ")
+                s.pomodoro.timer:stop()
+                naughty.notify({ title = "Countdown", text  = "Timer stopped" })
+            end
+
+            pomodoro_count = 0
+            s.pomodoro.widget:set_markup(" today: " .. tostring(pomodoro_count) .. " | ")
+        end)
+    ))
+
 
     -- Create the wibox
     s.mywibox = awful.wibar {
@@ -154,12 +285,18 @@ screen.connect_signal("request::desktop_decoration", function(s)
             s.mytasklist, -- Middle widget
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
+                --s.omo,
+                s.pomodoro.icon,
+                s.pomodoro.widget,
+
+                s.water_me.icon,
+                s.water_me.widget,
                 {
                   id = "dnd",
                   widget = s.noti_status,
                 },
                 s.myRam,
-                s.myBattery,
+                --s.myBattery,
                 wibox.widget.systray(),
                 mytextclock,
             },
@@ -454,7 +591,7 @@ ruled.notification.connect_signal('request::rules', function()
         rule       = { },
         properties = {
             screen           = awful.screen.preferred,
-            implicit_timeout = 5,
+            implicit_timeout = 5
         }
     }
 end)
@@ -499,7 +636,7 @@ for _, app in ipairs(autostart_app) do
 	run_once_grep(app)
 end
 
--- just_run("openrgb --server --profile pp.orp & && disown $(jobs -lp | awk '{print $1}')")
+just_run("openrgb --server --profile pp.orp & && disown $(jobs -lp | awk '{print $1}')")
 
 --
 -- }}}

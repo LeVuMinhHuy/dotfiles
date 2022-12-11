@@ -25,6 +25,7 @@ alias nextgen 'cd /home/mhhmm/Documents/sourcecodedotcomdotau/NEXTGEN'
 alias bash_me_daddy 'cd /home/mhhmm/Documents/somewhereineurope/bash'
 alias r 'ranger'
 alias torrent "transmission-cli"
+alias sw 'tmux switch-client -t '
 
 # pnpm
 set -gx PNPM_HOME "/home/mhhmm/.local/share/pnpm"
