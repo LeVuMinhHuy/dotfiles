@@ -22,7 +22,7 @@ function fish_prompt
     set -l git_dirty (command git status -s --ignore-submodules=dirty 2> /dev/null)
     if test -n "$git_branch"
         if test -n "$git_dirty"
-            set_color black -b "#DEBACE"
+            set_color black -b "#ECB390"
             echo -n " $git_branch "
         else
             set_color black -b "#7FB77E"
