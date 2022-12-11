@@ -16,16 +16,11 @@ set fish_color_valid_path
 fish_config
 ```
 
-Choose the colors in that config site
-
 ### Nvim
 
 ![Nvim tree](./.pics/treenvim.png)
 
 Remember to install `vim-plug` and run :PlugInstall inside `$HOME/.config/nvim/plug.vim`
-
-Theme: Gruvbox
-Font: Cascadia Code Roman
 
 ![Nvim terminal](./.pics/nvim.png)
 
@@ -33,15 +28,8 @@ Font: Cascadia Code Roman
 
 I use Arch, btw
 
-My first rice looks like the picture below with a lot complicated stuffs and features.
-
-![Awesomewm with Arch linux](./.pics/aw2.png)
-
-After a while, I found this rice has so many problems (slow by the time, so much functions that I don't understand and therefore can not control it)
-
 I decided to turn back to the basic, which have nothing than just a default config.
 
-![Keep it basic](./.pics/awb1.png)
-![Keep it basic](./.pics/awb2.png)
+and some reminder stuffs i custom in the wibar (e.g. pomodoro, water reminder, do not disturb options, ...)
 
-Please install font: Cascadia Code Nerd Font, I love this font so much
+![Keep it basic](./.pics/awesome.png)
