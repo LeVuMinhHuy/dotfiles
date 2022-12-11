@@ -12,6 +12,10 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 require("awful.autofocus")
 
+local function just_run(command) 
+  awful.spawn.easy_async_with_shell(command, function() end)
+end
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -135,8 +139,9 @@ screen.connect_signal("request::desktop_decoration", function(s)
    --   widget:set_markup(" bat: " .. string.format("%.f", cap) .. " | ")
    --   collectgarbage("collect")
    -- end)
-
+   --
     s.noti_status = wibox.widget.textbox(" dnd: "  .. tostring(naughty.is_suspended())  .. " | ")
+
 
     local water_icon = wibox.widget {
       image  = "/home/mhhmm/Pictures/emotes/water.png",
@@ -149,7 +154,55 @@ screen.connect_signal("request::desktop_decoration", function(s)
       image  = "/home/mhhmm/Pictures/emotes/pomodoro.png",
       widget = wibox.widget.imagebox,
     }
-    
+
+    local twitch_icon = wibox.widget {
+      image  = "/home/mhhmm/Pictures/emotes/twitch.png",
+      widget = wibox.widget.imagebox,
+    }
+   
+    local twitch_live_list = awful.widget.watch('wtwitch check ', 60, function(widget, stdout)
+       local list = stdout:match(
+          "Live channels:\n(.*)\n\n%s*Offline:"
+       )      
+
+       if (list == nil or list == "") then
+         widget:set_markup(" live:  none | ")
+         collectgarbage("collect")
+         return
+       end
+
+       list = list:gsub("[^%S\n]+", ""):gsub("[\27\155][][()#;?%d]*[A-PRZcf-ntqry=><~]", "")
+       local live_name = ""
+       local list_filtered = list:gmatch("[^\r\n]+")
+
+       for name in list_filtered do
+         live_name = live_name .. name:match("(.+):(.*)") .. " :: "
+       end
+
+       widget:set_markup(" live: " ..  live_name .. " | ")
+       collectgarbage("collect")
+    end)
+
+
+    local function watch_twitch()
+      awful.prompt.run {
+          prompt       = '<b>streamer: </b>',
+          textbox      = awful.screen.focused().mypromptbox.widget,
+          exe_callback = function(input)
+              if not input or #input == 0 then return end
+              just_run("wtwitch w " .. input)
+          end
+      }
+    end
+
+    s.twitch = {
+      widget = twitch_live_list,
+      icon = twitch_icon
+    }
+
+    s.twitch.widget:buttons(awful.util.table.join(
+        awful.button({}, 1, function() watch_twitch() end) -- left click
+    ))
 
     s.water_me = {
         widget   = wibox.widget.textbox(" | "),
@@ -285,12 +338,16 @@ screen.connect_signal("request::desktop_decoration", function(s)
             s.mytasklist, -- Middle widget
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
-                --s.omo,
+
+                s.twitch.icon,
+                s.twitch,
+
                 s.pomodoro.icon,
                 s.pomodoro.widget,
 
                 s.water_me.icon,
                 s.water_me.widget,
+
                 {
                   id = "dnd",
                   widget = s.noti_status,
@@ -611,10 +668,6 @@ end)
 -- {{{ Autostart
 --
 -- Autorun programs
-
-local function just_run(command) 
-  awful.spawn.easy_async_with_shell(command, function() end)
-end
 
 local function run_once_grep(command)
 	awful.spawn.easy_async_with_shell(string.format("ps aux | grep '%s' | grep -v 'grep'", command), function(stdout)
