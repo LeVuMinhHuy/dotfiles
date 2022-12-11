@@ -190,7 +190,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
                       top = 440,
                       left = 390
                     },
-                    icon = "/home/mhhmm/Pictures/emotes/water.png",
+                    icon = "/home/mhhmm/Pictures/emotes/lilydrink.png",
                     ignore_suspend = true,
                     border_color = "#82C3EC",
                     fg = "#82C3EC",
@@ -229,7 +229,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
             if s.pomodoro.seconds > 0 then
                 local minutes = math.floor(s.pomodoro.seconds / 60)
                 local seconds = math.fmod(s.pomodoro.seconds, 60)
-                s.pomodoro.widget:set_markup(string.format("%d:%02d | today: " .. tostring(pomodoro_count) .. " | ", minutes, seconds))
+                s.pomodoro.widget:set_markup(string.format("%d:%02d :: today: " .. tostring(pomodoro_count) .. " | ", minutes, seconds))
                 s.pomodoro.seconds = s.pomodoro.seconds - 1
             else
                 pomodoro_count = pomodoro_count + 1
