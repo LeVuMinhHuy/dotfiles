@@ -14,7 +14,7 @@ function fish_prompt
     echo -n $time
 
     # Display current path
-    set_color black -b white 
+    set_color black -b "#E5EBB2"
     echo -n " $cwd "
 
     # Show git branch and dirty state
@@ -22,10 +22,10 @@ function fish_prompt
     set -l git_dirty (command git status -s --ignore-submodules=dirty 2> /dev/null)
     if test -n "$git_branch"
         if test -n "$git_dirty"
-            set_color black -b yellow
+            set_color black -b "#DEBACE"
             echo -n " $git_branch "
         else
-            set_color black -b green
+            set_color black -b "#8EC3B0"
             echo -n " $git_branch "
         end
     end

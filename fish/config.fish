@@ -27,6 +27,20 @@ alias r 'ranger'
 alias torrent "transmission-cli"
 alias sw 'tmux switch-client -t '
 
+# For work only
+set -gx PAT "nqy5243qcd7huee6hsoflxlheo2vgjrtfsxwn2oxjzokjjss3ksq"
+set -gx B64_PAT "Om5xeTUyNDNxY2Q3aHVlZTZoc29mbHhsaGVvMnZnanJ0ZnN4d24yb3hqem9rampzczNrc3E="
+alias pull_deploy_uat 'git -c http.extraHeader="Authorization: Basic $B64_PAT" pull origin uat'
+alias pull_deploy_dev 'git -c http.extraHeader="Authorization: Basic $B64_PAT" pull origin develop'
+alias push_deploy_uat 'git -c http.extraHeader="Authorization: Basic $B64_PAT" push origin uat'
+alias push_deploy_dev 'git -c http.extraHeader="Authorization: Basic $B64_PAT" push origin develop'
+alias pull_deploy_prod 'git -c http.extraHeader="Authorization: Basic $B64_PAT" pull origin prod'
+alias push_deploy_prod 'git -c http.extraHeader="Authorization: Basic $B64_PAT" push origin prod'
+alias git_deploy 'git -c http.extraHeader="Authorization: Basic $B64_PAT"'
+
+# For europe only
+alias fund_project 'cd /home/mhhmm/Documents/somewhereineurope/fund'
+
 # pnpm
 set -gx PNPM_HOME "/home/mhhmm/.local/share/pnpm"
 
