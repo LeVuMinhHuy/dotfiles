@@ -25,7 +25,7 @@ function fish_prompt
             set_color black -b "#DEBACE"
             echo -n " $git_branch "
         else
-            set_color black -b "#8EC3B0"
+            set_color black -b "#7FB77E"
             echo -n " $git_branch "
         end
     end
