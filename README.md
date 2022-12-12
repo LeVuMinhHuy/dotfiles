@@ -30,6 +30,6 @@ I use Arch, btw
 
 I decided to turn back to the basic, which have nothing than just a default config.
 
-and some reminder stuffs i custom in the wibar (e.g. get realtime twitch live, pomodoro, water reminder, do not disturb options, ...)
+and some reminder stuffs i custom in the wibar (e.g. todolist, count down to workout time, get realtime twitch live, pomodoro, water reminder, do not disturb options, ...)
 
-![Keep it basic](./.pics/aw6.png)
+![Keep it basic](./.pics/aw9.png)
