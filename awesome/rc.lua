@@ -170,6 +170,13 @@ screen.connect_signal("request::desktop_decoration", function(s)
       image  = "/home/mhhmm/Pictures/emotes/twitch.png",
       widget = wibox.widget.imagebox,
     }
+
+    local todo_urgent = wibox.widget {
+      image  = "/home/mhhmm/Pictures/emotes/wokege.png",
+      forced_height = 30,
+      forced_width = 30,
+      widget = wibox.widget.imagebox,
+    }
  
     local time_to_run = awful.widget.watch('date +"%T"', 3600, function(widget, stdout)
        local hour = stdout:match(
@@ -204,7 +211,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
          time_left = 24 - tonumber(hour) + 18
        end
 
-       widget:set_markup(" " .. "<span color='yellow'><b>" .. time_left .. "h </b></span>" .. "left until running time | ")
+       widget:set_markup(" " .. "<span color='yellow'><b>" .. time_left .. "h </b></span>" .. "left | ")
        collectgarbage("collect")
     end)
 
@@ -258,10 +265,27 @@ screen.connect_signal("request::desktop_decoration", function(s)
       }
     end
 
+
+    local function input_todo()
+      awful.prompt.run {
+          prompt       = '<b>todo: </b>',
+          textbox      = awful.screen.focused().mypromptbox.widget,
+          exe_callback = function(input)
+              if not input or #input == 0 then return end
+              s.todo_urgent.widget:set_markup("<span color='#FF7D7D'> ::<i><b> " .. input .. "</b></i></span>  | ")
+          end
+      }
+    end
+
+
     s.twitch = {
       widget = twitch_live_list,
       icon = twitch_icon
     }
+
+    s.twitch.widget:buttons(awful.util.table.join(
+        awful.button({}, 1, function() watch_twitch() end) -- left click
+    ))
 
     s.twitch.widget:buttons(awful.util.table.join(
         awful.button({}, 1, function() watch_twitch() end) -- left click
@@ -276,6 +300,18 @@ screen.connect_signal("request::desktop_decoration", function(s)
         widget   = wibox.widget.textbox(" | "),
         icon = pomodoro_icon
     }
+
+    s.todo_urgent = {
+        widget   = wibox.widget.textbox(" :: none | "),
+        icon = todo_urgent
+    }
+
+    s.todo_urgent.icon:buttons(awful.util.table.join(
+        awful.button({}, 1, function() input_todo() end), -- left click
+        awful.button({}, 3, function() 
+            s.todo_urgent.widget:set_markup(" :: none | ")
+        end)     
+    ))
 
     local drink_count = 0
     s.water_me.widget:set_markup(" :: " .. drink_count .. " | ")
@@ -407,6 +443,9 @@ screen.connect_signal("request::desktop_decoration", function(s)
             s.mytasklist, -- Middle widget
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
+
+                s.todo_urgent.icon,
+                s.todo_urgent,
 
                 time_to_run,
 
