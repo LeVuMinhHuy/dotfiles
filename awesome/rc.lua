@@ -405,6 +405,10 @@ awful.keyboard.append_global_keybindings({
 
 -- Focus related keybindings
 awful.keyboard.append_global_keybindings({
+    awful.key({ modkey, "Shift" }, "s",      function () 
+      client.focus.sticky = not client.focus.sticky  
+    end),
+
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
