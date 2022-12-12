@@ -208,6 +208,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
        collectgarbage("collect")
     end)
 
+    local last_list_wtwtich = "none"
    
     local twitch_live_list = awful.widget.watch('wtwitch check ', 60, function(widget, stdout)
        local list = stdout:match(
@@ -226,9 +227,22 @@ screen.connect_signal("request::desktop_decoration", function(s)
 
        for name in list_filtered do
          live_name = live_name .. name:match("(.+):(.*)") .. " :: "
+
+         if last_list_wtwtich ~= list then
+            naughty.notify({
+              title = name:match("(.+):(.*)") .. " is live now !!",
+              text  = name,
+              position = 'top_middle',
+              icon = "/home/mhhmm/Pictures/emotes/twitch.png",
+              ignore_suspend = true,
+              border_color = "#7F669D",
+              fg = "#7F669D",
+            })
+         end
        end
 
        widget:set_markup(" live: " ..  live_name .. " | ")
+       last_list_wtwtich = list
        collectgarbage("collect")
     end)
 
