@@ -159,6 +159,36 @@ screen.connect_signal("request::desktop_decoration", function(s)
       image  = "/home/mhhmm/Pictures/emotes/twitch.png",
       widget = wibox.widget.imagebox,
     }
+ 
+    local time_to_run = awful.widget.watch('date +"%T"', 3600, function(widget, stdout)
+       local hour, min, sec = stdout:match(
+          "(%d+):(%.*)"
+       )      
+
+       if tonumber(hour) == 18 then
+          naughty.notify({
+             title = "time to run",
+             --text  = string.format("%s %s timeout", timeout, s.water_me.minute_t),
+             text  = string.format("stop the work, do it later"),
+             timeout = 60,
+             height = 1000,
+             width = 1000,
+             position = 'top_middle',
+             margin = {
+               top = 440,
+               left = 390
+             },
+             icon = "/home/mhhmm/Pictures/emotes/run.png",
+             ignore_suspend = true,
+             border_color = "#7F669D",
+             fg = "#7F669D",
+          })
+       end
+
+       widget:set_markup(" live: " ..  live_name .. " | ")
+       collectgarbage("collect")
+    end)
+
    
     local twitch_live_list = awful.widget.watch('wtwitch check ', 60, function(widget, stdout)
        local list = stdout:match(
@@ -338,6 +368,8 @@ screen.connect_signal("request::desktop_decoration", function(s)
             s.mytasklist, -- Middle widget
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
+
+                time_to_run,
 
                 s.twitch.icon,
                 s.twitch,
