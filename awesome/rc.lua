@@ -116,6 +116,14 @@ screen.connect_signal("request::desktop_decoration", function(s)
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
+        style   = {
+          font                  = "Sarasa Mono CL 12",
+          bg_normal             = "#1d2021",
+          fg_normal             = "#ebdbb2",
+          bg_focus              = "#32302f",
+          tasklist_disable_icon = true,
+          align                 = "center"
+        },
         buttons = {
             awful.button({ }, 1, function (c)
                 c:activate { context = "tasklist", action = "toggle_minimization" }
@@ -357,6 +365,8 @@ screen.connect_signal("request::desktop_decoration", function(s)
     -- Create the wibox
     s.mywibox = awful.wibar {
         position = "bottom",
+        bg       = "#1d2021",
+        fg       = "#ebdbb2",
         screen   = s,
         widget   = {
             layout = wibox.layout.align.horizontal,
