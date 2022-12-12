@@ -233,7 +233,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
        local list_filtered = list:gmatch("[^\r\n]+")
 
        for name in list_filtered do
-         live_name = live_name .. name:match("(.+):(.*)") .. " :: "
+         live_name = live_name .. name:match("(%a+):") .. " :: "
 
          if last_list_wtwtich ~= list then
             naughty.notify({
