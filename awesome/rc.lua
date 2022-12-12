@@ -172,7 +172,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
     }
  
     local time_to_run = awful.widget.watch('date +"%T"', 3600, function(widget, stdout)
-       local hour, min, sec = stdout:match(
+       local hour = stdout:match(
           "(%d+):(%.*)"
        )      
 
@@ -196,7 +196,15 @@ screen.connect_signal("request::desktop_decoration", function(s)
           })
        end
 
-       widget:set_markup(" live: " ..  live_name .. " | ")
+       local time_left = 0
+
+       if tonumber(hour) < 18 then
+         time_left = 18 - tonumber(hour)
+       else
+         time_left = 24 - tonumber(hour) + 18
+       end
+
+       widget:set_markup(" " .. "<span color='yellow'><b>" .. time_left .. "h </b></span>" .. "left until running time | ")
        collectgarbage("collect")
     end)
 
