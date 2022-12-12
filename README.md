@@ -32,4 +32,4 @@ I decided to turn back to the basic, which have nothing than just a default conf
 
 and some reminder stuffs i custom in the wibar (e.g. get realtime twitch live, pomodoro, water reminder, do not disturb options, ...)
 
-![Keep it basic](./.pics/aw5.png)
+![Keep it basic](./.pics/aw6.png)
