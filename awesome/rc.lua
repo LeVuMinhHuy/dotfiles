@@ -277,8 +277,11 @@ screen.connect_signal("request::desktop_decoration", function(s)
         icon = pomodoro_icon
     }
 
+    local drink_count = 0
+    s.water_me.widget:set_markup(" :: " .. drink_count .. " | ")
+
     function s.water_me.set()
-        s.water_me.widget:set_markup(" | ")
+        s.water_me.widget:set_markup(" :: " .. drink_count .. " | ")
         local timeout = 20
         s.water_me.seconds = tonumber(timeout)
         if not s.water_me.seconds then return end
@@ -289,11 +292,12 @@ screen.connect_signal("request::desktop_decoration", function(s)
             if s.water_me.seconds > 0 then
                 local minutes = math.floor(s.water_me.seconds / 60)
                 local seconds = math.fmod(s.water_me.seconds, 60)
-                s.water_me.widget:set_markup(string.format("%d:%02d | ", minutes, seconds))
+                s.water_me.widget:set_markup( string.format("%d:%02d", minutes, seconds) .. " :: " .. drink_count .. " | ")
                 s.water_me.seconds = s.water_me.seconds - 1
             else
+                drink_count = drink_count + 1
                 s.water_me.timer:stop()
-                s.water_me.widget:set_markup(" done | ")
+                s.water_me.widget:set_markup(" done :: " .. drink_count .. " | ")
                 naughty.notify({
                     title = "drink water",
                     --text  = string.format("%s %s timeout", timeout, s.water_me.minute_t),
@@ -321,7 +325,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
         awful.button({}, 1, function() s.water_me.set() end), -- left click
         awful.button({}, 3, function() -- right click
             if s.water_me.timer and s.water_me.timer.started then
-                s.water_me.widget:set_markup(" | ")
+                s.water_me.widget:set_markup(" :: " .. drink_count .. " | ")
                 s.water_me.timer:stop()
                 naughty.notify({ title = "Countdown", text  = "Timer stopped" })
             end
