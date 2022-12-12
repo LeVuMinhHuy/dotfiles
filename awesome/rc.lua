@@ -121,6 +121,9 @@ screen.connect_signal("request::desktop_decoration", function(s)
           bg_normal             = "#1d2021",
           fg_normal             = "#ebdbb2",
           bg_focus              = "#32302f",
+          fg_focus              = "#ebdbb2",
+          bg_minimize           = "#1d2021",
+          fg_minimize           = "#ebdbb2",
           tasklist_disable_icon = true,
           align                 = "center"
         },
