@@ -237,7 +237,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 
          if last_list_wtwtich ~= list then
             naughty.notify({
-              title = name:match("(.+):(.*)") .. " is live now !!",
+              title = name:match("(%a+):") .. " is live now !!",
               text  = name,
               position = 'top_middle',
               icon = "/home/mhhmm/Pictures/emotes/twitch.png",
@@ -668,6 +668,7 @@ client.connect_signal("request::default_keybindings", function()
                 c:raise()
             end,
             {description = "toggle fullscreen", group = "client"}),
+        awful.key({ modkey,           }, "p", function () just_run("flameshot full --clipboard --path /home/mhhmm/Pictures/Screenshots") end),
         awful.key({ modkey,           }, "q",      function (c) c:kill()                         end,
                 {description = "close", group = "client"}),
         awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
