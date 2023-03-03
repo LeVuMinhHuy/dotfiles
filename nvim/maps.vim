@@ -30,24 +30,17 @@ nnoremap <Leader>k :split<CR>
 "nmap <silent> ;; <Plug>(easymotion-overwin-f)
 "nmap <silent> ;l <Plug>(easymotion-overwin-line)
 
-" Open tab on NERDTree, <Tab> instead of <Enter>
+" Open tab on NERDTree, <Esc> instead of <Enter>
 nmap <Esc> <Enter>
 
 " Floating windows
-nnoremap <silent> <A-d> :Lspsaga open_floaterm<CR>
-tnoremap <silent> <A-d> <C-\><C-n>:Lspsaga close_floaterm<CR>
+nnoremap <silent> <A-d> :Lspsaga term_toggle<CR>
+tnoremap <silent> <A-d> <C-\><C-n>:Lspsaga term_toggle<CR>
 
 " Sort impprts
 nnoremap <C-o> :OrganizeImports<CR>
 
-" Manage tabs
-nnoremap <C-q> :close<CR>
-nnoremap <silent> <Tab> :tabn<CR>
-
-" Manage functions
-nnoremap <silent> <A-f> :Vista nvim_lsp<CR>
-"nnoremap <silent> <A-f> <C-\><C-n> :Vista nvim_lsp<CR>
-
+" Copy and paste
 vnoremap <Leader>y "*y
 nnoremap <Leader>p "*p
 

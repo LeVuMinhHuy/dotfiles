@@ -31,6 +31,8 @@ if has("nvim")
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
   Plug 'akinsho/git-conflict.nvim' 
   Plug 'tamton-aquib/duck.nvim'
+  Plug 'anuvyklack/pretty-fold.nvim'
+  Plug 'easymotion/vim-easymotion'
 endif
 
 call plug#end()
