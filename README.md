@@ -2,7 +2,7 @@ Put these files into `$HOME/.config`
 
 ### Fish
 
-![Fish shell](./.pics/fish.png)
+![Fish shell](./.pics/fish2.png)
 
 Simple prompt UI config by me
 
@@ -17,8 +17,6 @@ fish_config
 ```
 
 ### Nvim
-
-![Nvim tree](./.pics/treenvim2.png)
 
 Remember to install `vim-plug` and run :PlugInstall inside `$HOME/.config/nvim/plug.vim`
 
