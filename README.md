@@ -18,11 +18,11 @@ fish_config
 
 ### Nvim
 
-![Nvim tree](./.pics/treenvim1.png)
+![Nvim tree](./.pics/treenvim2.png)
 
 Remember to install `vim-plug` and run :PlugInstall inside `$HOME/.config/nvim/plug.vim`
 
-![Nvim terminal](./.pics/nvim1.png)
+![Nvim terminal](./.pics/nvim2.png)
 
 ### Awesomewm
 
