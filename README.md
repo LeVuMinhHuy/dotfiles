@@ -2,7 +2,7 @@ Put these files into `$HOME/.config`
 
 ### Fish
 
-![Fish shell](./.pics/fish2.png)
+![Fish shell](./.pics/fish3.png)
 
 Simple prompt UI config by me
 
