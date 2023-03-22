@@ -2,11 +2,11 @@ Put these files into `$HOME/.config`
 
 ### Fish
 
-![Fish shell](./.pics/fish3.png)
+![Fish shell](./.pics/fish4.png)
 
 Simple prompt UI config by me
 
-Remember to install `exa` for better list files.
+I switched from `exa` to `lsp` for better listing folder size
 
 Run these command:
 
@@ -27,7 +27,10 @@ git clone https://github.com/github/copilot.vim.git \
   ~/.config/nvim/pack/github/start/copilot.vim
 ```
 
+Install chatGPT for nvim too, and now we can both generate code and search/explain related needs right inside nvim
+
 ![Nvim terminal](./.pics/nvim2.png)
+![Nvim terminal](./.pics/nvim3.png)
 
 ### Awesomewm
 

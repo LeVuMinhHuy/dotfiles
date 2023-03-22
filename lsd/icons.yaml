@@ -1,0 +1,19 @@
+name:
+  .trash: 
+  .cargo: 
+  .emacs.d: 
+  a.out: 
+extension:
+  go: 
+  rs: 🦀
+filetype:
+  dir: 📂
+  file: 
+  pipe: 📩
+  socket: 
+  executable: 
+  symlink-dir: 
+  symlink-file: 
+  device-char: 
+  device-block: ﰩ
+  special: 
