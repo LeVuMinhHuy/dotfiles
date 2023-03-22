@@ -20,6 +20,13 @@ fish_config
 
 Remember to install `vim-plug` and run :PlugInstall inside `$HOME/.config/nvim/plug.vim`
 
+Install copilot for nvim
+
+```
+git clone https://github.com/github/copilot.vim.git \
+  ~/.config/nvim/pack/github/start/copilot.vim
+```
+
 ![Nvim terminal](./.pics/nvim2.png)
 
 ### Awesomewm
