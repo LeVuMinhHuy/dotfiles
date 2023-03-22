@@ -54,3 +54,5 @@ vnoremap <S-A-k> :m '<-2<CR>gv=gv
 
 xnoremap p pgvy
 
+" ChatGPT
+nnoremap <C-c> :ChatGPT<CR>

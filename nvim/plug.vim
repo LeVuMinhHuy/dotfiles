@@ -33,6 +33,9 @@ if has("nvim")
   Plug 'tamton-aquib/duck.nvim'
   Plug 'anuvyklack/pretty-fold.nvim'
   Plug 'easymotion/vim-easymotion'
+  Plug 'jackMort/ChatGPT.nvim'
+  Plug 'MunifTanjim/nui.nvim'
+  Plug 'dpayne/CodeGPT.nvim'
 endif
 
 call plug#end()
