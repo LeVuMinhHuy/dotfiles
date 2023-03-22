@@ -16,20 +16,6 @@ and not set -q TMUX
   exec tmux
 end
 
-alias vim "nvim"
-alias testwm "Xephyr :5 & sleep 1 ; DISPLAY=:5 awesome"
-alias barney "vim /home/mhhmm/.config/awesome/rc.lua"
-alias rust_me_daddy 'cd /home/mhhmm/Documents/somewhereineurope/rust && vim'
-alias fish_me_daddy 'cd /home/mhhmm/.config/fish && vim'
-alias nextgen 'cd /home/mhhmm/Documents/sourcecodedotcomdotau/NEXTGEN'
-alias bash_me_daddy 'cd /home/mhhmm/Documents/somewhereineurope/bash'
-alias r 'ranger'
-alias torrent "transmission-cli"
-alias sw 'tmux switch-client -t '
-
-# For europe only
-alias fund_project 'cd /home/mhhmm/Documents/somewhereineurope/fund'
-
 # pnpm
 set -gx PNPM_HOME "/home/mhhmm/.local/share/pnpm"
 
