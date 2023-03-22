@@ -223,7 +223,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
        )      
 
        if (list == nil or list == "") then
-         widget:set_markup(" live:  none | ")
+         widget:set_markup(" none | ")
          collectgarbage("collect")
          return
        end
@@ -248,7 +248,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
          end
        end
 
-       widget:set_markup(" live: " ..  live_name .. " | ")
+       widget:set_markup(" " ..  live_name .. " | ")
        last_list_wtwtich = list
        collectgarbage("collect")
     end)
@@ -444,10 +444,10 @@ screen.connect_signal("request::desktop_decoration", function(s)
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
 
-                s.todo_urgent.icon,
-                s.todo_urgent,
+                --s.todo_urgent.icon,
+                --s.todo_urgent,
 
-                time_to_run,
+                --time_to_run,
 
                 s.twitch.icon,
                 s.twitch,
@@ -668,7 +668,7 @@ client.connect_signal("request::default_keybindings", function()
                 c:raise()
             end,
             {description = "toggle fullscreen", group = "client"}),
-        awful.key({ modkey,           }, "p", function () just_run("flameshot full --clipboard --path /home/mhhmm/Pictures/Screenshots") end),
+        awful.key({                   }, "Alt_R", function () just_run("flameshot full --clipboard --path /home/mhhmm/Pictures/Screenshots") end),
         awful.key({ modkey,           }, "q",      function (c) c:kill()                         end,
                 {description = "close", group = "client"}),
         awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
