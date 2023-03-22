@@ -6,7 +6,7 @@ Put these files into `$HOME/.config`
 
 Simple prompt UI config by me
 
-I switched from `exa` to `lsp` for better listing folder size
+I switched from `exa` to `lsd` for better listing folder size
 
 Run these command:
 
