@@ -31,6 +31,7 @@ Install chatGPT for nvim too, and now we can both generate code and search/expla
 
 ![Nvim terminal](./.pics/nvim2.png)
 ![Nvim terminal](./.pics/nvim3.png)
+![Nvim terminal](./.pics/nvim5.png)
 
 ### Awesomewm
 
