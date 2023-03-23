@@ -69,7 +69,7 @@ chatgpt.setup({
     scroll_down = "<C-j>",
     toggle_settings = "<C-o>",
     new_session = "<C-s>",
-    cycle_windows = "<Tab>",
+    --cycle_windows = "<Tab>",
     -- in the Sessions pane
     --select_session = "<C-s>",
     rename_session = "r",
