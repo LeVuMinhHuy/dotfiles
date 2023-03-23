@@ -36,6 +36,8 @@ if has("nvim")
   Plug 'jackMort/ChatGPT.nvim'
   Plug 'MunifTanjim/nui.nvim'
   Plug 'dpayne/CodeGPT.nvim'
+  Plug 'ThePrimeagen/harpoon'
 endif
+
 
 call plug#end()
