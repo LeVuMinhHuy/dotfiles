@@ -23,7 +23,8 @@ require'nvim-treesitter.configs'.setup {
 		"css",
 		"javascript",
     "lua",
-    "rust"
+    "rust",
+    "typescript"
   },
 }
 
