@@ -1,7 +1,7 @@
 if !exists('g:loaded_telescope') | finish | endif
 
-nnoremap <silent> <C-b> <CMD>Telescope find_files<CR>
-"nnoremap <silent> <C-p> <CMD>Telescope harpoon marks<CR>
+nnoremap <silent> <C-b> <CMD>Telescope git_files<CR>
+nnoremap <silent> <C-g> <CMD>Telescope git_status<CR>
 
 lua << EOF
 function telescope_buffer_dir()
