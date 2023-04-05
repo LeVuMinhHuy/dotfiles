@@ -56,3 +56,7 @@ xnoremap p pgvy
 
 " ChatGPT
 nnoremap <C-c> :ChatGPT<CR>
+
+" Resize windows
+nnoremap <S-h> :vertical resize +2<CR>
+nnoremap <S-l> :vertical resize -2<CR>

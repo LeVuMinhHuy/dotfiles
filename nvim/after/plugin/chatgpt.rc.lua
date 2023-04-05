@@ -73,6 +73,6 @@ chatgpt.setup({
     -- in the Sessions pane
     --select_session = "<C-s>",
     rename_session = "r",
-    delete_session = "d",
+    --delete_session = "<C-m>",
   }
 })
