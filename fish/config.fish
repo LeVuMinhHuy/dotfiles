@@ -6,11 +6,15 @@
 #end
 
 if type -q lsd
-  alias ls='lsd -l'
+  alias ls 'lsd -l'
   alias ll "lsd -l"
+  alias lld "lsd -l --total-size"
   alias lla "lsd -la"
+  alias llad "lsd -la --total-size"
   alias lll "lsd -l --tree --depth=2"
+  alias llld "lsd -l --tree --depth=2 --total-size"
   alias llla "lsd -l --tree --depth=2 -a"
+  alias lllad "lsd -l --tree --depth=2 -a --total-size"
 end
 
 
@@ -35,8 +39,8 @@ alias r 'ranger'
 alias torrent "transmission-cli"
 alias sw 'tmux switch-client -t '
 alias myconfig 'cd /home/mhhmm/Documents/somewhereineurope/myconfig/dotfiles'
-
-# For europe only
+alias home 'cd /home/mhhmm/Documents/somewhereineurope'
+alias oss 'cd /home/mhhmm/Documents/somewhereineurope/oss'
 
 # pnpm
 set -gx PNPM_HOME "/home/mhhmm/.local/share/pnpm"

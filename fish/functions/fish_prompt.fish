@@ -32,5 +32,5 @@ function fish_prompt
 
     # Add a space
     set_color normal
-    echo -n ' = '
+    echo -n ' :: '
 end
