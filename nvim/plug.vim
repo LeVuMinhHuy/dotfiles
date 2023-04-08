@@ -38,6 +38,7 @@ if has("nvim")
   Plug 'dpayne/CodeGPT.nvim'
   Plug 'ThePrimeagen/harpoon'
   Plug 'edluffy/hologram.nvim'
+  Plug 'sindrets/diffview.nvim'
 endif
 
 

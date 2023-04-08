@@ -53,6 +53,10 @@ au BufNewFile,BufRead *.fish set filetype=fish
 set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.py,.md
 let g:syntastic_typescript_checks=['tsc', 'tslint']
 
+" Enable persistent undo so that undo history persists across vim sessions
+set undofile
+set undodir=~/.vim/undo
+
 " typescript: find tsconfig.json
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
@@ -61,3 +65,5 @@ let g:prettier#autoformat_require_pragma = 0
 let g:rustfmt_autosave = 1
 
 set mouse+=a
+
+
