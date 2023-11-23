@@ -18,20 +18,12 @@ fish_config
 
 ### Nvim
 
-Remember to install `vim-plug` and run :PlugInstall inside `$HOME/.config/nvim/plug.vim`
+2024 is coming, time to use LazyVim
 
-Install copilot for nvim
+also _hasta la vista_ Copilot, I'm with Codium now, free and simple enough !
 
-```
-git clone https://github.com/github/copilot.vim.git \
-  ~/.config/nvim/pack/github/start/copilot.vim
-```
-
-Install chatGPT for nvim too, and now we can both generate code and search/explain related needs right inside nvim
-
-![Nvim terminal](./.pics/nvim2.png)
-![Nvim terminal](./.pics/nvim3.png)
-![Nvim terminal](./.pics/nvim5.png)
+![Nvim terminal](./.pics/lazyvim1.png)
+![Nvim terminal](./.pics/lazyvim2.png)
 
 ### Awesomewm
 

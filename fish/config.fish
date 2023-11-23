@@ -6,41 +6,44 @@
 #end
 
 if type -q lsd
-  alias ls 'lsd -l'
-  alias ll "lsd -l"
-  alias lld "lsd -l --total-size"
-  alias lla "lsd -la"
-  alias llad "lsd -la --total-size"
-  alias lll "lsd -l --tree --depth=2"
-  alias llld "lsd -l --tree --depth=2 --total-size"
-  alias llla "lsd -l --tree --depth=2 -a"
-  alias lllad "lsd -l --tree --depth=2 -a --total-size"
+    alias ls 'lsd -l'
+    alias ll "lsd -l"
+    alias lld "lsd -l --total-size"
+    alias lla "lsd -la"
+    alias llad "lsd -la --total-size"
+    alias lll "lsd -l --tree --depth=2"
+    alias llld "lsd -l --tree --depth=2 --total-size"
+    alias llla "lsd -l --tree --depth=2 -a"
+    alias lllad "lsd -l --tree --depth=2 -a --total-size"
 end
 
 
 if status --is-interactive
-  if test -z "$DISPLAY" -a $XDG_VTNR = 1
-    exec startx -- -keeptty
-  end
+    if test -z "$DISPLAY" -a $XDG_VTNR = 1
+        exec startx -- -keeptty
+    end
 end
 
 if status is-interactive
-and not set -q TMUX
-  exec tmux
+    and not set -q TMUX
+    exec tmux
 end
 
 
-alias vim "nvim"
+alias vim nvim
 alias testwm "Xephyr :5 & sleep 1 ; DISPLAY=:5 awesome"
 alias barney "vim /home/mhhmm/.config/awesome/rc.lua"
 alias crabpls 'cd /home/mhhmm/Documents/somewhereineurope/rust'
 alias nextgen 'cd /home/mhhmm/Documents/sourcecodedotcomdotau/NEXTGEN'
-alias r 'ranger'
-alias torrent "transmission-cli"
+alias r ranger
+alias torrent transmission-cli
 alias sw 'tmux switch-client -t '
 alias myconfig 'cd /home/mhhmm/Documents/somewhereineurope/myconfig/dotfiles'
 alias home 'cd /home/mhhmm/Documents/somewhereineurope'
 alias oss 'cd /home/mhhmm/Documents/somewhereineurope/oss'
+alias showme 'gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0'
+alias osx 'cd /home/mhhmm/OSX-KVM && ./OpenCore-Boot.sh'
+alias clear-showme 'sudo modprobe -r v4l2loopback && sudo modprobe v4l2loopback exclusive_caps=1 max_buffers=2'
 
 # pnpm
 set -gx PNPM_HOME "/home/mhhmm/.local/share/pnpm"
@@ -51,4 +54,4 @@ set -gx RUST_HOME "/home/mhhmm/.cargo/bin"
 set -ga fish_user_paths $RUST_HOME $PNPM_HOME
 
 # asdf
-source /opt/asdf-vm/asdf.fish
+ource /opt/asdf-vm/asdf.fish
