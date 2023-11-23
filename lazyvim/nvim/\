@@ -25,7 +25,7 @@ return {
                 --    },
                 --},
                 lualine_b = {},
-                lualine_c = { "%=%t | %m", { "filename", file_status = true, path = 1 } },
+                lualine_c = { "%=%t |%m", { "filename", file_status = true, path = 1 } },
                 -- lualine_c = {},
                 lualine_x = {},
                 lualine_y = {},
@@ -40,13 +40,13 @@ return {
                 lualine_a = {},
                 lualine_b = {},
                 --lualine_z = { { "filename", file_status = true, path = 1 } },
-                lualine_c = {
-                    "%=",
-                    {
-                        git_blame.get_current_blame_text,
-                        cond = git_blame.is_blame_text_available,
-                    },
-                },
+lualine_c = {
+                --    "%=",
+                --    {
+                --        git_blame.get_current_blame_text,
+                --        cond = git_blame.is_blame_text_available,
+                --    },
+                --},
                 lualine_x = {},
                 lualine_y = {},
                 lualine_z = {},

@@ -8,7 +8,8 @@ return {
             numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
             linehl = true, -- Toggle with `:Gitsigns toggle_linehl`
             current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
-            current_line_blame_formatter = "    :: <author>, <author_time:%Y-%m-%d> ::    ",
+            current_line_blame_formatter = "<author> • <author_time:%c> • <summary>",
+            show_deleted = true,
         },
     },
     {
