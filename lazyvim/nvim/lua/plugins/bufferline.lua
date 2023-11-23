@@ -23,16 +23,6 @@ return {
                     icon = "▎", -- this should be omitted if indicator style is not 'icon'
                     style = "icon",
                 },
-                offsets = {
-                    {
-                        filetype = "NvimTree",
-                        text = "File Explorer",
-                        text_align = "right",
-                        separator = true,
-                    },
-                },
-
-                separator_style = "slope",
             },
         },
     },
