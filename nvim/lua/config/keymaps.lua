@@ -99,3 +99,9 @@ end)
 -- Telescope find by word
 keymap("n", "<leader>sg", search_by_word)
 keymap("n", "<C-f>", search_by_word)
+
+-- GitSigns
+keymap("n", "<leader>ss", function()
+    vim.cmd("Gitsigns toggle_linehl")
+    vim.cmd("Gitsigns toggle_deleted")
+end)

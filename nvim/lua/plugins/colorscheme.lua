@@ -2,12 +2,25 @@ return {
     -- kanagawa
     {
         "rebelot/kanagawa.nvim",
+        opts = {
+            transparent = false,
+            background = { -- map the value of 'background' option to a theme
+                dark = "wave", -- try "dragon" !
+                light = "lotus",
+            },
+        },
     },
 
     -- gruvbox
-    { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = {
-        transparent_mode = true,
-    } },
+    {
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000,
+        config = true,
+        opts = {
+            transparent_mode = false,
+            gruvbox_background = "soft",
+        },
+    },
 
     -- catppuccin
     {
@@ -46,9 +59,9 @@ return {
         opts = {
             --colorscheme = "catppuccin",
             --colorscheme = "everforest",
-            --colorscheme = "gruvbox-material",
+            colorscheme = "gruvbox-material",
             --colorscheme = "gruvbox",
-            colorscheme = "kanagawa",
+            --colorscheme = "kanagawa",
         },
     },
 }

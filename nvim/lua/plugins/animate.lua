@@ -4,7 +4,7 @@ return {
         event = "VeryLazy",
         opts = {
             scroll = {
-                enable = false,
+                enable = true,
             },
         },
     },
