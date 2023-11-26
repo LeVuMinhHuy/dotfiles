@@ -18,7 +18,7 @@ return {
         config = true,
         opts = {
             transparent_mode = false,
-            gruvbox_background = "soft",
+            gruvbox_background = "hard",
         },
     },
 
@@ -49,7 +49,7 @@ return {
         lazy = true,
         name = "gruvbox-material",
         opts = {
-            gruvbox_material_background = "soft",
+            gruvbox_material_background = "hard",
         },
     },
 

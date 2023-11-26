@@ -1,5 +1,8 @@
 return {
     { "echasnovski/mini.indentscope", version = "*", opts = {
-        symbol = "♥️",
+        symbol = "•",
     } },
+    {
+        "HiPhish/rainbow-delimiters.nvim",
+    },
 }

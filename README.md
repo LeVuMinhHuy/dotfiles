@@ -25,7 +25,7 @@ also _hasta la vista_ Copilot, I'm with Codium now, free and simple enough !
 ![Nvim terminal](./.pics/lazyvim3.png)
 
 Zen mode
-![Nvim terminal](./.pics/lazyvim4.png)
+![Nvim terminal](./.pics/lazyvim5.png)
 
 ### Awesomewm
 
