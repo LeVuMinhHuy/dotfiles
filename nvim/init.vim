@@ -4,7 +4,7 @@ autocmd!
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
-autocmd BufWritePre *.lua lua vim.lsp.buf.formatting()
+autocmd InsertEnter * ++once lua require("copilot").setup({})
 
 "autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
 "autocmd BufWritePre *.go lua goimports(1000)
@@ -30,6 +30,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set clipboard=unnamedplus
+set signcolumn=yes
 
 " Setup mapping key
 runtime ./maps.vim

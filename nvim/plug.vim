@@ -12,7 +12,6 @@ if has("nvim")
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/nvim-cmp'
-  Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'onsails/lspkind-nvim'
 	Plug 'L3MON4D3/LuaSnip'
@@ -25,20 +24,22 @@ if has("nvim")
 	Plug 'preservim/nerdtree'
 	Plug 'ryanoasis/vim-devicons'
 	Plug 'eugen0329/vim-esearch'
-	Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
   Plug 'jparise/vim-graphql'
   Plug 'rust-lang/rust.vim'
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
   Plug 'akinsho/git-conflict.nvim' 
-  Plug 'tamton-aquib/duck.nvim'
   Plug 'anuvyklack/pretty-fold.nvim'
   Plug 'easymotion/vim-easymotion'
-  Plug 'jackMort/ChatGPT.nvim'
   Plug 'MunifTanjim/nui.nvim'
-  Plug 'dpayne/CodeGPT.nvim'
   Plug 'ThePrimeagen/harpoon'
   Plug 'edluffy/hologram.nvim'
   Plug 'sindrets/diffview.nvim'
+  Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
+  Plug 'cdmill/focus.nvim' 
+  Plug 'github/copilot.vim'
+  Plug 'zbirenbaum/copilot.lua'
+  Plug 'CopilotC-Nvim/CopilotChat.nvim'
+  Plug 'folke/which-key.nvim'
 endif
 
 

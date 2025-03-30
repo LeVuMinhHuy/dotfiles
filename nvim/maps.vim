@@ -14,17 +14,17 @@ nnoremap <C-k> <C-u>
 nnoremap <C-j> <C-d>
 
 " Move windows
-nnoremap <A-l> <C-w>l
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
+" nnoremap <A-l> <C-w>l
+" nnoremap <A-O> <C-w>h
+" nnoremap <A-j> <C-w>j
+" nnoremap <A-k> <C-w>k
 
 " Map leader
 let mapleader=" "
 
 " Split windows
 nnoremap <Leader>l :vsplit<CR>
-nnoremap <Leader>k :split<CR>
+nnoremap <Leader>; :split<CR>
 
 " Vim easymotion
 "nmap <silent> ;; <Plug>(easymotion-overwin-f)
@@ -54,9 +54,9 @@ vnoremap <S-A-k> :m '<-2<CR>gv=gv
 
 xnoremap p pgvy
 
-" ChatGPT
-nnoremap <C-c> :ChatGPT<CR>
-
 " Resize windows
 nnoremap <S-h> :vertical resize +2<CR>
 nnoremap <S-l> :vertical resize -2<CR>
+
+" Zen mode
+nnoremap <Leader>z :Focus<CR>

@@ -18,14 +18,11 @@ fish_config
 
 ### Nvim
 
-2024 is coming, time to use LazyVim
+it's 2025, lazyvim is so overrated, I switched back to my basic config, with:
 
-also _hasta la vista_ Copilot, I'm with Codium now, free and simple enough !
-
-![Nvim terminal](./.pics/lazyvim3.png)
-
-Zen mode
-![Nvim terminal](./.pics/lazyvim5.png)
+- zen mode
+- lsp, with prettierd
+- copilot, with chat
 
 ### Awesomewm
 

@@ -42,7 +42,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 
   -- formatting
-	if client.name == 'tsserver' then
+	if client.name == 'ts_ls' then
 		client.server_capabilities.documentFormattingProvider = false	
 	end
 
@@ -93,15 +93,9 @@ nvim_lsp.flow.setup {
   capabilities = capabilities
 }
 
-nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-  capabilities = capabilities
-}
-
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
-  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'typescript.tsx', 'css', 'less', 'scss', 'markdown', 'pandoc', 'lua'},
+  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'typescript.tsx', 'css', 'less', 'scss', 'markdown', 'pandoc', 'lua', 'python', 'html'},
   init_options = {
     linters = {
       eslint = {
@@ -139,10 +133,12 @@ nvim_lsp.diagnosticls.setup {
         rootPatterns = { '.git' },
       },
       prettier = {
-        command = 'prettier_d_slim',
-        rootPatterns = { '.git' },
+        command = 'prettierd',
+        -- rootPatterns = { '.git' },
         -- requiredFiles: { 'prettier.config.js' },
-        args = { '--stdin', '--stdin-filepath', '%filename' }
+        formatCommand = 'prettierd "${INPUT}"',
+        formatStdin = true,
+        args = { '--stdin', '--stdin-filepath', '%filename' },
       }
     },
     formatFiletypes = {
@@ -158,6 +154,8 @@ nvim_lsp.diagnosticls.setup {
       markdown = 'prettier',
       go = 'prettier',
       lua = 'prettier',
+      py = 'prettier',
+      html = 'prettier'
 			}
   }
 }
@@ -184,9 +182,10 @@ local function organize_imports()
   vim.lsp.buf.execute_command(params)
 end
 
-nvim_lsp.tsserver.setup {
+nvim_lsp.ts_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact" },
   commands = {
     OrganizeImports = {
       organize_imports,

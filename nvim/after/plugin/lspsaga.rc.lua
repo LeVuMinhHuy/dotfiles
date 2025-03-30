@@ -12,12 +12,12 @@ saga.setup({
     sign_priority = 20,
     virtual_text = false,
   },
-  diagnostic_header = { " ", " ", " ", "ﴞ "},
+  diagnostic_header = { " ", " ", " ", ""},
   border_style = "rounded",
 })
 
 
-keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+keymap("n", "gf", "<cmd>Lspsaga finder<CR>", { silent = true })
 keymap("n", "gp", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 keymap("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>", {silent = true})
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
